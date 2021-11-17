@@ -12,7 +12,6 @@ This project is designed to showcase a simple Cloudflare proxy that permits sett
 </td>
 </tr>
 </table>
-</br></br>
 
 ### okta-auth-js
 In order to utilize this proxy, you must either implement some custom methods to overwrite the normal `okta-auth-js` SDK or, at a minimum, implement a custom [`httpRequestClient`](https://github.com/okta/okta-auth-js#httprequestclient) that will send the appropriate `withCredentials: true` argument required by CORS in order to permit the `Set-Cookie` header in the `/token` response.
