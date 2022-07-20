@@ -15,7 +15,7 @@ export const AuthModal = (props) => {
 	const { login } = useAuthActions();
 	const { authModalIsVisible, isLoadingLogin, iFrameIsVisible, authUrl, tokenParams } = useAuthState();
 
-	const ALLOW = process.env.REACT_APP_AUTH_ALLOW,
+	const ALLOW = process.env.REACT_APP_AUTH_ALLOW || `public-key-credentials-get self src`,
 		modalWidth = '400px',
 		modalHeight = '650px';
 
