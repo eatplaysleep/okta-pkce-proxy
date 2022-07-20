@@ -7,23 +7,15 @@ import { AuthDialog, Loader } from '../../components';
 import { useAuthActions, useAuthDispatch, useAuthState } from '../../providers';
 
 const ENV = process.env.NODE_ENV;
-const ORIGINS = process.env.REACT_APP_ORIGIN_ALLOW?.split(/, {0,2}/) || [
-	window.location.origin,
-];
+const ORIGINS = process.env.REACT_APP_ORIGIN_ALLOW?.split(/, {0,2}/) || [window.location.origin];
 
-export const AuthModal = props => {
+export const AuthModal = (props) => {
 	const { onClose } = props;
 	const dispatch = useAuthDispatch();
 	const { login } = useAuthActions();
-	const {
-		authModalIsVisible,
-		isLoadingLogin,
-		iFrameIsVisible,
-		authUrl,
-		tokenParams,
-	} = useAuthState();
+	const { authModalIsVisible, isLoadingLogin, iFrameIsVisible, authUrl, tokenParams } = useAuthState();
 
-	const ALLOW = process.env.REACT_APP_STEP_UP_ALLOW,
+	const ALLOW = process.env.REACT_APP_AUTH_ALLOW,
 		modalWidth = '400px',
 		modalHeight = '650px';
 
@@ -79,7 +71,7 @@ export const AuthModal = props => {
 			}
 		};
 
-		const resolve = error => {
+		const resolve = (error) => {
 			if (error) {
 				throw error;
 			}
